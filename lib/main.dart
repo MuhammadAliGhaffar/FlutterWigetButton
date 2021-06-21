@@ -19,6 +19,7 @@ class _State extends State<MyApp> {
   int count = 0;
   String str = '';
   String _value = 'Hello World';
+  int val = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,10 @@ class _State extends State<MyApp> {
                 child: new Text('Change String Button'),
               ),
               new Text(this._value),
-              new FlatButton(onPressed: onPressed,child: new Text('Click me'),)
+              new FlatButton(onPressed: onPressed,child: new Text('Click me'),),
+              new Text('Value :${this.val}'),
+              new IconButton(onPressed: addition, icon: new Icon(Icons.add)),
+              new IconButton(onPressed: subtract, icon: new Icon(Icons.remove))
             ],
           ),
         ),
@@ -65,6 +69,18 @@ class _State extends State<MyApp> {
   void onPressed(){
     setState(() {
       this._value= new DateTime.now().toString();
+    });
+  }
+
+  void addition(){
+    setState(() {
+      this.val++;
+    });
+  }
+
+  void subtract(){
+    setState(() {
+      this.val--;
     });
   }
 }
